@@ -8,7 +8,7 @@ class Spree::Menu < ActiveRecord::Base
   belongs_to :menu_bar
   belongs_to :page
   
-  attr_accessible :page_id, :sequence,:parent_id, :link_text, :url, :visible, :menu_bar_id
+  attr_accessible :page_id, :sequence, :parent_id, :link_text, :url, :visible, :menu_bar_id
   alias_attribute :position, :sequence
   
   attr_accessible :alt, :menu_image, :vieweable
