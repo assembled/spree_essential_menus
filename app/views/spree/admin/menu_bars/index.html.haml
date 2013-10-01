@@ -10,13 +10,13 @@
   %thead
     %tr
       %th= t('spree.admin.menu_bars.name')
-      %th= t('spree.admin.menu_bars.css_class')
+      %th= t('spree.admin.menu_bars.description')
       %th= t('action')
   %tbody
     - @menu_bars.each do |bar|
       %tr
         %td= bar.name
-        %td= bar.css_class
+        %td= bar.description
         %td
           = link_to_with_icon :pages, "List of Menus", admin_menu_bar_menus_path(bar)
           = link_to_edit bar
