@@ -1,7 +1,8 @@
 - if menu_bar.present?
   %ul{:class => "menu #{menu_bar.css_class}"}
     - if menu_bar.menus.visible.count > 0
-      - if description = menu_bar.description && description.present?
+      - description = menu_bar.description
+      - if description.present?
         %li
           %h6= description
       - menu_bar.menus.visible.each do |menu|
