@@ -30,15 +30,18 @@ class Spree::Menu < ActiveRecord::Base
     :default_style => :medium,
     :url => '/spree/menus/:id/:style/:basename.:extension',
     :path => ':rails_root/public/spree/menus/:id/:style/:basename.:extension'
-    
+  
+  include Spree::Core::S3Support
+  supports_s3 :menu_image
+  
   def image_content?
     menu_image_content_type.to_s.match(/\/(jpeg|png|gif|tiff|x-photoshop)/)
   end
   
   def attachment_sizes
     hash = {}
-    hash.merge!(:mini => '48x48>', :greyscale => {:processors => [:grayscale]}) if image_content?
-    hash.merge!(:logo_color => '123x81>', :logo_grey => {:geometry => '123x81>', :processors => [:thumbnail,:grayscale]}) if parent_id.nil?
+    hash.merge!(:mini => '48x48>') if image_content?
+    # hash.merge!(:logo_color => '123x81>') if parent_id.nil?
     hash
   end
   

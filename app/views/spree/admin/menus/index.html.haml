@@ -36,7 +36,7 @@
             = menu.parent.link_text
         %td
           - if menu.menu_image.present?
-            = link_to image_tag(menu.menu_image.url(:mini)), menu.menu_image.url(:color), :target => "_blank"
+            = link_to image_tag(menu.menu_image.url(:mini)), menu.menu_image.url(:original), :target => "_blank"
           - else
             None
         %td

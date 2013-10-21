@@ -7,7 +7,10 @@
           %h6= description
       - menu_bar.menus.visible.each do |menu|
         %li
-          = link_to menu.link_text, menu.url
+          - if menu.menu_image
+            = link_to image_tag(menu.menu_image.url(:original)), menu.url
+          - else
+            = link_to menu.link_text, menu.url
 
 -#- if menu_bar.present?
 -#  %ul{:class => "menu #{menu_bar.css_class}"}
