@@ -7,7 +7,7 @@
           %h6= description
       - menu_bar.menus.visible.each do |menu|
         %li
-          - if menu.menu_image
+          - if menu.menu_image.present?
             = link_to image_tag(menu.menu_image.url(:original)), menu.url
           - else
             = link_to menu.link_text, menu.url

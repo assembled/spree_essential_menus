@@ -29,6 +29,7 @@ class Spree::Menu < ActiveRecord::Base
     :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
     :default_style => :medium,
     :url => '/spree/menus/:id/:style/:basename.:extension',
+    :default_url => '',
     :path => ':rails_root/public/spree/menus/:id/:style/:basename.:extension'
   
   include Spree::Core::S3Support
