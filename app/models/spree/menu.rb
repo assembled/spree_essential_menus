@@ -27,10 +27,10 @@ class Spree::Menu < ActiveRecord::Base
   
    has_attached_file :menu_image,
     :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
-    :default_style => :medium,
-    :url => '/spree/menus/:id/:style/:basename.:extension',
-    :default_url => '',
-    :path => ':rails_root/public/spree/menus/:id/:style/:basename.:extension'
+    :default_style => :medium
+    # :default_url => '',
+    # :url => '/spree/menus/:id/:style/:basename.:extension',
+    # :path => ':rails_root/public/spree/menus/:id/:style/:basename.:extension'
   
   include Spree::Core::S3Support
   supports_s3 :menu_image
