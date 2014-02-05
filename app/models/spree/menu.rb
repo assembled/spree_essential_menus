@@ -23,14 +23,18 @@ class Spree::Menu < ActiveRecord::Base
   validates_presence_of :menu_bar
   
   default_scope order(:sequence)
-  scope :visible, where(:visible => true)
+  # scope :visible, where(:visible => true)
   
    has_attached_file :menu_image,
     :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
     :default_style => :medium,
     :url => '/spree/menus/:id/:style/:basename.:extension',
     :path => ':rails_root/public/spree/menus/:id/:style/:basename.:extension'
-    
+  
+  def self.visible
+    where(visible:true)
+  end
+  
   def image_content?
     menu_image_content_type.to_s.match(/\/(jpeg|png|gif|tiff|x-photoshop)/)
   end
